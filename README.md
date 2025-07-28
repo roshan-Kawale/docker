@@ -52,3 +52,7 @@ and setting needed to run your application.
 
 ##### 9. Networks
 => Docker Networks allow containers to communicate with each others.
+
+### *Task 2 : Docker Setup.*
+
+[Download and Install docker](https://www.docker.com/products/docker-desktop/ "Download and Install docker").   

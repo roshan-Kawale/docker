@@ -55,4 +55,25 @@ and setting needed to run your application.
 
 ### *Task 2 : Docker Setup.*
 
-[Download and Install docker](https://www.docker.com/products/docker-desktop/ "Download and Install docker").   
+[Download and Install docker](https://www.docker.com/products/docker-desktop/ "Download and Install docker").
+
+### ***Task 3 : Migrate your flask application to built using docker with dockerfile***
+
+```python
+FROM python:3.11-slim
+WORKDIR /app
+
+# Set Flask app environment variable
+ENV FLASK_APP=app:create_flask_app
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=5000
+
+# Install the application dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy in the source code
+COPY . .
+EXPOSE 5000
+
+CMD ["flask" , "run"] ```

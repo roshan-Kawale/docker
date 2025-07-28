@@ -77,7 +77,7 @@ and setting needed to run your application.
     
     CMD ["flask" , "run"] 
 
-### ***Task 4 : Create dockercompose.yml to run your flask application ***
+### Task 4 : Create dockercompose.yml to run your flask application
 
     version: "3.8"
     

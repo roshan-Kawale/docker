@@ -77,3 +77,20 @@ COPY . .
 EXPOSE 5000
 
 CMD ["flask" , "run"] ```
+
+### ***Task 4 : Create dockercompose.yml to run your flask application ***
+
+```python
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      FLASK_APP: app:create_flask_app
+      FLASK_ENV: development
+    command: flask run ```

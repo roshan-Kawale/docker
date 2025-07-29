@@ -1,5 +1,5 @@
-#**Docker**
-------------
+# **Docker**
+
 Date : 2025/07/28
 
 Tasks : 
@@ -93,6 +93,10 @@ and setting needed to run your application.
           FLASK_ENV: development
         command: flask run	
 
+------------
+
+Date : 2025/07/29
+
 ### *Task 5 : Mount a folder in your local to container to save the json file into that mounted path. We should be able to see json file in local*
 
     version: "3.8"
@@ -115,3 +119,22 @@ In this docker-compose.yml file we have to use a volumes to mount a local root d
           - .:/app
 
 After this , when we have to change a code in local machine they automatically reflect in a container without run a `docker build`.
+
+### *Task 6 : Call APIs from outside to docker container*
+
+In Dockerfile we have to use :
+
+    EXPOSE 5000
+
+In docker-compose.yml we have to use:
+
+        ports:
+          - "5000:5000"
+
+This means,
+Container port 5000 is mapped to host port 5000.
+We have seen a running flask app on `http://localhost:5000` in our local browser.
+
+Using port mapping now we can Call APIs from our local machine.
+
+

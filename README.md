@@ -77,7 +77,7 @@ and setting needed to run your application.
     
     CMD ["flask" , "run"] 
 
-### Task 4 : Create dockercompose.yml to run your flask application
+### *Task 4 : Create dockercompose.yml to run your flask application*
 
     version: "3.8"
     
@@ -91,4 +91,27 @@ and setting needed to run your application.
         environment:
           FLASK_APP: app:create_flask_app
           FLASK_ENV: development
-        command: flask run 
+        command: flask run	
+
+### *Task 5 : Mount a folder in your local to container to save the json file into that mounted path. We should be able to see json file in local*
+
+    version: "3.8"
+    
+    services:
+      web:
+        build: .
+        ports:
+          - "5000:5000"
+        volumes:
+          - .:/app
+        environment:
+          FLASK_APP: app:create_flask_app
+          FLASK_ENV: development
+        command: flask run
+
+In this docker-compose.yml file we have to use a volumes to mount a local root directory `(.)` with container `/app` directory.
+
+     volumes:
+          - .:/app
+
+After this , when we have to change a code in local machine they automatically reflect in a container without run a `docker build`.
